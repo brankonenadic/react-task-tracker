@@ -3,14 +3,14 @@ import { useState } from "react"
 const AddTask = ({onAdd}) => {
     const [text, setText] = useState('');
     const [day, setDay] = useState('');
-    const [reimanider, setReimanider] = useState(false);
+    const [reminder, setReimanider] = useState(false);
     const onSubmit = (e) => {
-        e.preventDefalut();
+        e.preventDefault();
         if(!text) {
             alert('Please add task !')
             return
         }
-        onAdd({text, day, reimanider})
+        onAdd({text, day, reminder})
         setText('')
         setDay('')
         setReimanider(false)
@@ -28,7 +28,7 @@ const AddTask = ({onAdd}) => {
             <div className="form-control form-control-check">
                 <label>Set remainder</label>
                 <input type="checkbox" 
-                checked={reimanider} value={reimanider} onChange={(e) => setReimanider(e.currentTarget.checked)}/>
+                checked={reminder} value={reminder} onChange={(e) => setReimanider(e.currentTarget.checked)}/>
             </div>
             <input type="submit" value="Save Task" className="btn btn-block"/>
         </form>
